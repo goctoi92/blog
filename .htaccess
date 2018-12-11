@@ -1,0 +1,7 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILLNAME} -s [OR]
+RewriteCond %{REQUEST_FILLNAME} -l [OR]
+RewriteCond %{REQUEST_FILLNAME} -d [OR]
+ReWriteRule ^(.*)$ index.php [NC,L]
+ReWriteRule ^(.*)$ - [NC,L]
