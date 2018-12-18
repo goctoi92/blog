@@ -228,7 +228,6 @@ section {
 @media (min-width: 1200px) {
     .container {
         max-width: 1320px;
-        margin: auto;
     }
 }
 
@@ -265,19 +264,12 @@ section {
 .page-container3 {
     background: #f7f7f7;
 }
-.form-group {
-    margin-bottom: 1rem;
-}
+
 .main-content {
     padding-top: 116px;
     min-height: 100vh;
 }
-label {
-    margin-bottom: .5rem;
-}
-a {
-    text-decoration: none;
-}
+
 @media (max-width: 991px) {
     .main-content {
         padding-top: 50px;
@@ -294,7 +286,7 @@ a {
 }
 
 .login-wrap {
-    max-width: 50%;
+    max-width: 540px;
     padding-top: 8vh;
     margin: 0 auto;
 }
@@ -316,12 +308,15 @@ a {
     -ms-flex-pack: justify;
     justify-content: space-between;
 }
+
 .login-checkbox label input[type="checkbox"] {
     margin-right: 8px;
 }
+
 .login-checkbox > label > a {
     color: #ff2e44;
 }
+
 @media (max-width: 991px) {
     .login-checkbox {
         -webkit-box-orient: vertical;
@@ -931,7 +926,7 @@ a {
 .select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple {
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
- }
+}
 
 .rs-select2--border .select2-container--default .select2-selection--single,
 
@@ -5267,7 +5262,7 @@ a {
 }
 
 .switch.switch-text .switch-label::before,
-  .switch.switch-text .switch-label::after {
+.switch.switch-text .switch-label::after {
     position: absolute;
     top: 50%;
     width: 50%;
@@ -5413,7 +5408,7 @@ a {
 }
 
 .switch.switch-icon .switch-label::before,
-  .switch.switch-icon .switch-label::after {
+.switch.switch-icon .switch-label::after {
     position: absolute;
     top: 50%;
     width: 50%;

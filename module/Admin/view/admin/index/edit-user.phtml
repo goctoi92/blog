@@ -1,80 +1,97 @@
+<?php
+$user = $this->user;
+?>
+
 
 
 <div class="main-content">
     <div class="section__content section__content--p30">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="login-form">
-                    <form action="" method="post">
-                        <div class="form-group">
-                            <label>Full name</label>
-                            <input class="au-input au-input--full" type="text" name="username" placeholder="Full name">
+        <div class="panel panel-default">
+            <div class="panel-heading">Edit user:<strong> <?=$user->getName();?></strong></div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="login-form">
+                            <form action="" method="post">
+                                <div class="form-group">
+                                    <label>Full name</label>
+                                    <input class="au-input au-input--full" type="text" name="username" value="<?=$user->getName()?>" placeholder="Full name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email Address</label>
+                                    <input readonly="true" class="au-input au-input--full"  value="<?=$user->getEmail()?>" type="email" name="email" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                    <input class="au-input au-input--full" type="text" value="<?=$user->getPhone()?>" name="phone" placeholder="Your Phone">
+                                </div>
+                                <!--<div class="form-group">
+                                    <label>Image</label>
+                                    <input type="file" id="file-input" name="file-input" class="form-control-file">
+                                    <img class="img-avatar" src="aaaa.png" style="height: 100px; width: 80px;"/>
+                                </div>-->
+                                <div class="form-group checkbox">
+                                    <label>
+                                        <input value="1" type="checkbox" name="remember">Social
+                                    </label>
+                                </div>
+                                <div class="div-hide-social hidden">
+                                    <div class="form-group">
+                                        <label>Facebook</label>
+                                        <input class="au-input au-input--full" type="text" value="<?=$user->getFb()?>" name="facebook" placeholder="Link Facebook">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>TW</label>
+                                        <input class="au-input au-input--full" type="text" value="<?=$user->getTw()?>" name="tw" placeholder="Link Tw">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Github</label>
+                                        <input class="au-input au-input--full" type="text" value="<?=$user->getGit()?>" name="github" placeholder="Link Github">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Google</label>
+                                        <input class="au-input au-input--full" type="text" value="<?=$user->getGit()?>" name="google" placeholder="Link G+">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <?php  $role = $user->getRole();?>
+                                    <select name="role" id="role" class="form-control">
+                                        <option  value="0">Role</option>
+                                        <option <?php if($role == 1) echo 'selected' ;?> value="1">Admin</option>
+                                        <option <?php if($role == 2) echo 'selected' ;?> value="2">Write</option>
+                                        <option <?php if($role == 3) echo 'selected' ;?> value="3">Guest</option>
+                                    </select>
+                                </div>
+                                <div class="form-group div-hide-role <?php if($role != 1) echo 'hidden' ;?>">
+                                    <?php
+                                    $time_work = $user->getTimeWork();
+                                    $week = substr($time_work,0,9);
+                                    $time = substr($time_work,13,12);
+                                    ?>
+                                    <label>Work Time</label>
+                                    <select name="weekdays" id="weekdays" class="form-control">
+                                        <option value="0">Week Days</option>
+                                        <option <?php if($week == 'Mon - Fri') echo 'selected' ;?> value="Mon - Fri">Monday-Friday</option>
+                                        <option <?php if($week == 'Mon - Sat') echo 'selected' ;?> value="Mon - Sat">Monday-Saturday</option>
+                                    </select>
+                                    <select name="weekdays" id="weekdays" class="form-control">
+                                        <option value="0">Time</option>
+                                        <option <?php if($time == '8:00 - 17:00') echo 'selected' ;?> value="8:00 - 17:00">8.00 - 17.00</option>
+                                        <option <?php if($time == '9:00 - 18:00') echo 'selected' ;?> value="9:00 - 18:00">9.00 - 18.00</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <textarea class="au-input au-input--full" type="text" name="description" placeholder="Description"><?=$user->getDescription()?></textarea>
+                                </div>
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Cap nhat</button>
+                            </form>
                         </div>
-                        <div class="form-group">
-                            <label>Email Address</label>
-                            <input readonly="true" class="au-input au-input--full" type="email" name="email" placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <label>Phone</label>
-                            <input class="au-input au-input--full" type="text" name="phone" placeholder="Your Phone">
-                        </div>
-                        <!--<div class="form-group">
-                            <label>Image</label>
-                            <input type="file" id="file-input" name="file-input" class="form-control-file">
-                            <img class="img-avatar" src="aaaa.png" style="height: 100px; width: 80px;"/>
-                        </div>-->
-                        <div class="form-group checkbox">
-                            <label>
-                                <input value="1" type="checkbox" name="remember">Social
-                            </label>
-                        </div>
-                        <div class="div-hide-social hidden">
-                            <div class="form-group">
-                                <label>Facebook</label>
-                                <input class="au-input au-input--full" type="text" name="facebook" placeholder="Link Facebook">
-                            </div>
-                            <div class="form-group">
-                                <label>TW</label>
-                                <input class="au-input au-input--full" type="text" name="tw" placeholder="Link Tw">
-                            </div>
-                            <div class="form-group">
-                                <label>Github</label>
-                                <input class="au-input au-input--full" type="text" name="github" placeholder="Link Github">
-                            </div>
-                            <div class="form-group">
-                                <label>Google</label>
-                                <input class="au-input au-input--full" type="text" name="google" placeholder="Link G+">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <select name="role" id="role" class="form-control">
-                                <option value="0">Role</option>
-                                <option value="1">Admin</option>
-                                <option value="2">Write</option>
-                                <option value="3">Guest</option>
-                            </select>
-                        </div>
-                        <div class="form-group div-hide-role hidden">
-                            <label>Work Time</label>
-                            <select name="weekdays" id="weekdays" class="">
-                                <option value="0">Week Days</option>
-                                <option value="Mon-Fri">Monday-Friday</option>
-                                <option value="Mon-Sat">Monday-Saturday</option>
-                            </select>
-                            <select name="weekdays" id="weekdays" class="">
-                                <option value="0">Time</option>
-                                <option value="1">8.00 - 17.00</option>
-                                <option value="2">9.00 - 18.00</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Description</label>
-                            <textarea class="au-input au-input--full" type="text" name="description" placeholder="Description"></textarea>
-                        </div>
-                        <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Cap nhat</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
+
+
     </div>
 </div>

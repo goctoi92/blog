@@ -18,7 +18,7 @@ return [
             'admin' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route'    => '/admina[/:action][/:id]',
+                    'route'    => '/admin[/:action][/:id]',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
                         'action'     => 'index',
@@ -104,6 +104,7 @@ return [
     'service_manager' =>[
         'factories' => [
             Service\UserManager::class => Service\Factory\UserManagerFactory::class,
+            Service\TopicManager::class => Service\Factory\TopicManagerFactory::class,
             Service\AuthManager::class => Service\Factory\AuthManagerFactory::class,
             Service\AuthAdapter::class => Service\Factory\AuthAdapterFactory::class,
             AuthenticationService::class =>Service\Factory\AuthenticationServiceFactory::class,

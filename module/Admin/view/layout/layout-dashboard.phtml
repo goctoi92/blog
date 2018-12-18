@@ -1,31 +1,31 @@
+<?php
+$path = $this->serverUrl();
+?>
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <title>Dashboard</title>
-
-
     <!-- Main CSS-->
-    <?php echo $this->headLink()->appendStylesheet('../public/css/admin/bootstrap.css'); ?>
-    <?php echo $this->headLink()->appendStylesheet('../public/css/admin/theme.css'); ?>
-    <?php echo $this->headLink()->appendStylesheet('../public/css/admin/mdi-font/css/material-design-iconic-font.css'); ?>
-    <?php echo $this->headLink()->appendStylesheet('../public/css/admin/mdi-font/css/fontawesome-all.min.css'); ?>
+    <link href="<?=$path?>/blog/public/css/admin/bootstrap.css?<?php echo time(); ?>" media="screen" rel="stylesheet" type="text/css">
+    <link href="<?=$path?>/blog/public/css/admin/theme.css?<?php echo time(); ?>" media="screen" rel="stylesheet" type="text/css">
+    <link href="<?=$path?>/blog/public/css/admin/mdi-font/css/material-design-iconic-font.css?<?php echo time(); ?>" media="screen" rel="stylesheet" type="text/css">
+    <link href="<?=$path?>/blog/public/css/admin/mdi-font/css/fontawesome-all.min.css?<?php echo time(); ?>" media="screen" rel="stylesheet" type="text/css">
 
 </head>
 
 <body class="animsition">
 <div class="page-wrapper">
+
     <!-- HEADER MOBILE-->
     <header class="header-mobile d-block d-lg-none">
         <div class="header-mobile__bar">
             <div class="container-fluid">
                 <div class="header-mobile-inner">
                     <a class="logo" href="index.html">
-                        <img src="../public/images/admin/icon/logo.png" alt="CoolAdmin" />
+                        <img src="<?=$path?>/blog/public/images/admin/icon/logo.png" alt="CoolAdmin" />
                     </a>
                     <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -61,8 +61,8 @@
                             <i class="fas fa-chart-bar"></i>Charts</a>
                     </li>
                     <li>
-                        <a href="table.html">
-                            <i class="fas fa-table"></i>Tables</a>
+                        <a href="/blog/admin/topic">
+                            <i class="fas fa-table"></i>Topic</a>
                     </li>
                     <li>
                         <a href="form.html">
@@ -140,7 +140,7 @@
     <aside class="menu-sidebar d-none d-lg-block">
         <div class="logo">
             <a href="#">
-                <img src="../public/images/admin/icon/logo.png" alt="Cool Admin" />
+                <img src="<?=$path?>/blog/public/images/admin/icon/logo.png" alt="Cool Admin" />
             </a>
         </div>
         <div class="menu-sidebar__content js-scrollbar1">
@@ -169,8 +169,8 @@
                             <i class="fas fa-chart-bar"></i>Charts</a>
                     </li>
                     <li>
-                        <a href="table.html">
-                            <i class="fas fa-table"></i>Tables</a>
+                        <a href="/blog/admin/topic">
+                            <i class="fas fa-table"></i>Topic</a>
                     </li>
                     <li>
                         <a href="form.html">
@@ -268,7 +268,7 @@
                                         </div>
                                         <div class="mess__item">
                                             <div class="image img-cir img-40">
-                                                <img src="../public/images/admin/icon/avatar-06.jpg" alt="Michelle Moreno" />
+                                                <img src="<?=$path?>/blog/public/images/admin/icon/avatar-06.jpg" alt="Michelle Moreno" />
                                             </div>
                                             <div class="content">
                                                 <h6>Michelle Moreno</h6>
@@ -278,7 +278,7 @@
                                         </div>
                                         <div class="mess__item">
                                             <div class="image img-cir img-40">
-                                                <img src="../public/images/admin/icon/avatar-04.jpg" alt="Diane Myers" />
+                                                <img src="<?=$path?>/blog/public/images/admin/icon/avatar-04.jpg" alt="Diane Myers" />
                                             </div>
                                             <div class="content">
                                                 <h6>Diane Myers</h6>
@@ -300,7 +300,7 @@
                                         </div>
                                         <div class="email__item">
                                             <div class="image img-cir img-40">
-                                                <img src="../public/images/admin/icon/avatar-06.jpg" alt="Cynthia Harvey" />
+                                                <img src="<?=$path?>/blog/public/images/admin/icon/avatar-06.jpg" alt="Cynthia Harvey" />
                                             </div>
                                             <div class="content">
                                                 <p>Meeting about new dashboard...</p>
@@ -309,7 +309,7 @@
                                         </div>
                                         <div class="email__item">
                                             <div class="image img-cir img-40">
-                                                <img src="../public/images/admin/icon/avatar-05.jpg" alt="Cynthia Harvey" />
+                                                <img src="<?=$path?>/blog/public/images/admin/icon/avatar-05.jpg" alt="Cynthia Harvey" />
                                             </div>
                                             <div class="content">
                                                 <p>Meeting about new dashboard...</p>
@@ -318,7 +318,7 @@
                                         </div>
                                         <div class="email__item">
                                             <div class="image img-cir img-40">
-                                                <img src="../public/images/admin/icon/avatar-04.jpg" alt="Cynthia Harvey" />
+                                                <img src="<?=$path?>/blog/public/images/admin/icon/avatar-04.jpg" alt="Cynthia Harvey" />
                                             </div>
                                             <div class="content">
                                                 <p>Meeting about new dashboard...</p>
@@ -373,7 +373,7 @@
                             <div class="account-wrap">
                                  <div class="account-item clearfix js-item-menu">
                                     <div class="image">
-                                        <img src="../public/images/admin/icon/avatar-01.jpg" alt="John Doe" />
+                                        <img src="<?=$path?>/blog/public/images/admin/icon/avatar-01.jpg" alt="John Doe" />
                                     </div>
                                     <div class="content">
                                         <a class="js-acc-btn" href="#">john doe</a>
@@ -382,7 +382,7 @@
                                         <div class="info clearfix">
                                             <div class="image">
                                                 <a href="#">
-                                                    <img src="../public/images/admin/icon/avatar-01.jpg" alt="John Doe" />
+                                                    <img src="<?=$path?>/blog/public/images/admin/icon/avatar-01.jpg" alt="John Doe" />
                                                 </a>
                                             </div>
                                             <div class="content">
@@ -431,10 +431,9 @@
 </div>
 <!-- Main JS-->
 
-<script src="../public/js/admin/jquery-3.2.1.min.js"></script>
-<script src="../public/js/admin/jquery.min.js"></script>
-<script src="../public/js/admin/bootstrap.js"></script>
-<script src="../public/js/admin/main.js"></script>
+<script src="<?=$path?>/blog/public/js/admin/jquery-3.1.0.min.js" type="text/javascript"></script>
+<script src="<?=$path?>/blog/public/js/admin/bootstrap.js" type="text/javascript"></script>
+<script src="<?=$path?>/blog/public/js/admin/main.js" type="text/javascript"></script>
 
 </body>
 

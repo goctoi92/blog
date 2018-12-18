@@ -1,6 +1,7 @@
 <?php
 namespace Admin\Controller\Factory;
 use Admin\Controller\IndexController;
+use Admin\Service\TopicManager;
 use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\Factory\FactoryInterface;
 use Zend\ServiceManager\ServiceManager;
@@ -13,6 +14,7 @@ class IndexControllerFactory implements FactoryInterface
     {
         $entityManager = $container->get('doctrine.entitymanager.orm_default');
         $userManager = $container->get(UserManager::class);
-        return new IndexController($entityManager,$userManager);
+        $topicManager = $container->get(TopicManager::class);
+        return new IndexController($entityManager,$userManager,$topicManager);
     }
 }
