@@ -11,6 +11,7 @@ use Admin\Controller\AuthController;
 use Admin\Service\AuthManager;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\Mvc\MvcEvent;
+use Zend\Session\Container;
 
 class Module
 {

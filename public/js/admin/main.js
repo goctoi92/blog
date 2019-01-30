@@ -1,5 +1,10 @@
 $(document).ready(function () {
     // Sublist Sidebar
+
+    $("#txtEditor").Editor();
+    $(".Editor-editor").keydown(function () {
+        $("#txtEditorContent").val($("#txtEditor").Editor('getText'));
+    });
     try {
         var arrow = $('.js-arrow');
         arrow.each(function () {

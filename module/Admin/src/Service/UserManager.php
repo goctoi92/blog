@@ -31,6 +31,23 @@ class UserManager{
         $this->entityManager->flush();
         return $user;
     }
+    public function editUser($user,$data){
+        $user->setName($data['username']);
+        $user->setPhone($data['phone']);
+        $user->setFb($data['facebook']);
+        $user->setTw($data['tw']);
+        $user->setGit($data['github']);
+        $user->setGoogle($data['google']);
+        $user->setRole($data['role']);
+        $user->setTimeWork($data['weekdays']." - ".$data['time']);
+        $user->setDescription($data['description']);
+        $this->entityManager->flush();
+        return $user;
+    }
+    public function deleteUser($user){
+        $this->entityManager->remove($user);
+        $this->entityManager->flush();
+    }
 
     public function checkLogin($email,$password){
         $bcrypt = new Bcrypt();

@@ -21,7 +21,7 @@ class Topic{
     /** @Mapping\Column(type="string") */
     private $name;
 
-    /** @Mapping\Column(type="datetime") */
+    /** @Mapping\Column(type="string") */
     private $date;
 
     /** @Mapping\Column(type="string") */
@@ -33,23 +33,6 @@ class Topic{
     /** @Mapping\Column(type="string") */
     private $img1;
 
-    /** @Mapping\Column(type="string") */
-    private $img2;
-
-    /** @Mapping\Column(type="string") */
-    private $img3;
-
-    /** @Mapping\Column(type="string") */
-    private $img4;
-
-    /** @Mapping\Column(type="string") */
-    private $img5;
-
-    /** @Mapping\Column(type="string") */
-    private $video1;
-
-    /** @Mapping\Column(type="string") */
-    private $video2;
 
 
     /**
@@ -138,95 +121,6 @@ class Topic{
         $this->img1=$img1;
     }
 
-
-    /**
-     * @return mixed
-     */
-    public function getImg2(){
-        return $this->img2;
-    }
-
-    /**
-     * @param $img2
-     */
-    public function setImg2($img2){
-        $this->img2=$img2;
-    }
-
-
-    /**
-     * @return mixed
-     */
-    public function getImg3(){
-        return $this->img3;
-    }
-
-    /**
-     * @param $img3
-     */
-    public function setImg3($img3){
-        $this->img3=$img3;
-    }
-
-
-    /**
-     * @return mixed
-     */
-    public function getImg4(){
-        return $this->img4;
-    }
-
-    /**
-     * @param $img4
-     */
-    public function setImg4($img4){
-        $this->img4=$img4;
-    }
-
-
-    /**
-     * @return mixed
-     */
-    public function getImg5(){
-        return $this->img5;
-    }
-
-    /**
-     * @param $img5
-     */
-    public function setImg5($img5){
-        $this->img5=$img5;
-    }
-
-
-    /**
-     * @return mixed
-     */
-    public function getVideo1(){
-        return $this->video1;
-    }
-
-    /**
-     * @param $video1
-     */
-    public function setVideo1($video1){
-        $this->video1=$video1;
-    }
-
-
-    /**
-     * @return mixed
-     */
-    public function getVideo2(){
-        return $this->video2;
-    }
-
-    /**
-     * @param $video2
-     */
-    public function setVideo2($video2){
-        $this->video2=$video2;
-    }
 
 
 

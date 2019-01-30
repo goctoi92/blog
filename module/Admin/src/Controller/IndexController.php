@@ -11,6 +11,7 @@ use Admin\Entity\Users;
 use Zend\Authentication\AuthenticationService;
 use Zend\Mvc\MvcEvent;
 use Zend\Mvc\Controller\AbstractActionController;
+use Zend\Session\Container;
 use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
@@ -27,7 +28,19 @@ class IndexController extends AbstractActionController
         $this->topicManager=$topicManager;
 
     }
+    protected function attachDefaultListeners()
+    {
+        parent::attachDefaultListeners();
 
+        $events = $this->getEventManager();
+        $events->attach(MvcEvent::EVENT_DISPATCH, [$this, 'globalVariable']);
+    }
+
+    public function globalVariable(){
+        $user = new Container('auth_session');
+        $users = $this->entityManager->getRepository(Users::class)->findOneByEmail($user['email']);
+        $this->layout()->setVariable('acc',$users);
+    }
     public function indexAction()
     {
         $this->layout('layout/layout-dashboard');
@@ -52,11 +65,6 @@ class IndexController extends AbstractActionController
     }
     public function UserAction()
     {
-        $auth = new AuthenticationService();
-        $result = $auth->getIdentity();
-
-        echo "aaaaaaaaaaaaaaaaaaaaaa".$result;
-
         $users = $this->entityManager->getRepository(Users::class)->findAll();
         $this->layout('layout/layout-dashboard');
         return new ViewModel(['users'=>$users]);
@@ -65,6 +73,30 @@ class IndexController extends AbstractActionController
     {
         $id= $this->params()->fromRoute('id',0);
         $user = $this->entityManager->getRepository(Users::class)->find($id);
+        $request = $this->getRequest();
+        if ($request->isPost()){
+            $data = $this->params()->fromPost();
+            $this->userManager->editUser($user,$data);
+            $this->flashMessenger()->addSuccessMessage('Cap nhat thanh cong');
+            return $this->redirect()->toUrl('/blog/admin/user');
+        }
+        $this->layout('layout/layout-dashboard');
+        return new ViewModel(['user' => $user]);
+    }
+
+    public function DeleteUserAction(){
+        $id= $this->params()->fromRoute('id',0);
+        $user = $this->entityManager->getRepository(Users::class)->find($id);
+        $request = $this->getRequest();
+        if ($request->isPost()){
+            $btn = $this->getRequest()->getPost('delete','No');
+            if ($btn == 'Yes'){
+                $this->userManager->deleteUser($user);
+                $this->flashMessenger()->addSuccessMessage('Xoa thanh cong');
+            }
+            return $this->redirect()->toUrl('/blog/admin/user');
+        }
+
         $this->layout('layout/layout-dashboard');
         return new ViewModel(['user' => $user]);
     }
@@ -79,5 +111,25 @@ class IndexController extends AbstractActionController
         $id= $this->params()->fromRoute('id',0);
         $this->layout('layout/layout-dashboard');
         return new ViewModel();
+    }
+    public function uploadImage(){
+
+    }
+    public function AddTopicAction()
+    {
+        $user = new Container('auth_session');
+        $users = $this->entityManager->getRepository(Users::class)->findOneByEmail($user['email']);
+        $request = $this->getRequest();
+
+        if ($request->isPost()){
+            dd($_FILES['img-avatar']['name']);
+            $data = $this->params()->fromPost();
+            $topic = $this->topicManager->addTopic($data);
+            $this->redirect()->toUrl('/blog/admin/topic');
+        }
+        $this->layout('layout/layout-dashboard');
+        return new ViewModel([
+            'ac' =>$users,
+        ]);
     }
 }

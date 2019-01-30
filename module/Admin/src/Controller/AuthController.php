@@ -3,6 +3,7 @@ namespace Admin\Controller;
 
 use Zend\Authentication\Result;
 use Zend\Mvc\Controller\AbstractActionController;
+use Zend\Session\Container;
 use Zend\View\Model\ViewModel;
 
 class AuthController extends AbstractActionController{
@@ -18,6 +19,7 @@ class AuthController extends AbstractActionController{
         $this->authService = $authService;
     }
     public function loginAction(){
+        $auth_session = new Container('auth_session');
         if ($this->getRequest()->isPost()){
             $data = $this->params()->fromPost();
             $remember ='';
@@ -27,6 +29,7 @@ class AuthController extends AbstractActionController{
             }
             $result=$this->authManager->login($data['email'],$data['password'],$remember);
             if ($result->getCode()== Result::SUCCESS){
+                $auth_session->offsetSet('email', $data['email']);
                 $this->redirect()->toUrl('/blog/admin/index');
             }
             else{
